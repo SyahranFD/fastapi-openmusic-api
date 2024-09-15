@@ -1,6 +1,6 @@
 from fastapi import APIRouter
 
-from albums import router as albums
+from .albums.router import router as albums
 
 api_router = APIRouter()
-api_router.include_router(albums.router, prefix="/albums", tags=["albums"])
+api_router.include_router(albums, prefix="/albums", tags=["albums"])

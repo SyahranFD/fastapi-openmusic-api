@@ -9,9 +9,6 @@ def get_all_albums(db: Session):
 def get_album_by_id(db: Session, album_id: str):
     return db.query(models.Album).filter(models.Album.id == album_id).first()
 
-def get_songs_by_album_id(db: Session, album_id: str):
-    return db.query(models.Song).filter(models.Song.album_id == album_id).all()
-
 def create_album(db: Session, album: schemas.AlbumCreate):
     album_id = f"album-{uuid.uuid4()}"
     db_album = models.Album(id=album_id, **album.model_dump())

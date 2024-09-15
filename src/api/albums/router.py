@@ -6,7 +6,7 @@ from ..deps import get_db
 router = APIRouter()
 
 @router.post("/", response_model=schemas.Album)
-def create_album(album: schemas.AlbumCreate, db: Session = Depends(get_db())):
+def create_album(album: schemas.AlbumCreate, db: Session = Depends(get_db)):
     return service.create_album(db=db, album=album)
 
 @router.get("/", response_model=list[schemas.Album])
