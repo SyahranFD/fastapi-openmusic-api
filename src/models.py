@@ -6,8 +6,8 @@ from .database import Base
 class Album(Base):
     __tablename__ = "albums"
 
-    id = Column(String, primary_key=True)
-    name = Column(String, index=True)
+    id = Column(String(255), primary_key=True)
+    name = Column(String(255), index=True)
     year = Column(Integer, index=True)
 
     songs = relationship("Song", back_populates="album")
@@ -16,10 +16,10 @@ class Album(Base):
 class Song(Base):
     __tablename__ = "songs"
 
-    id = Column(String, primary_key=True)
-    title = Column(String, index=True)
+    id = Column(String(255), primary_key=True)
+    title = Column(String(255), index=True)
     year = Column(Integer, index=True)
-    performer = Column(String, index=True)
-    album_id = Column(String, ForeignKey("albums.id"))
+    performer = Column(String(255), index=True)
+    album_id = Column(String(255), ForeignKey("albums.id"))
 
     album = relationship("Album", back_populates="songs")
