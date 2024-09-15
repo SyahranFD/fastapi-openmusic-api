@@ -27,7 +27,7 @@ def upgrade() -> None:
         sa.Column('performer', sa.String(255), nullable=False),
         sa.Column('genre', sa.String(255), nullable=False),
         sa.Column('duration', sa.Integer(), nullable=False),
-        sa.Column('album_id', sa.String(255), sa.ForeignKey('albums.id', ondelete='CASCADE'), nullable=False),
+        sa.Column('album_id', sa.String(255), sa.ForeignKey('albums.id', ondelete='CASCADE'), nullable=True),
     )
 
 

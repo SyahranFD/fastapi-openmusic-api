@@ -10,7 +10,7 @@ def create_album(album: schemas.AlbumCreate, db: Session = Depends(get_db)):
     return service.create_album(db=db, album=album)
 
 @router.get("/", response_model=list[schemas.Album])
-def read_albums(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
+def read_albums(db: Session = Depends(get_db)):
     albums = service.get_all_albums(db)
     return albums
 
